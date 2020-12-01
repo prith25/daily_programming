@@ -1,6 +1,10 @@
 #Finding the GCD of a number using Euclidean algorithm in recursion
 def gcd(num1,num2):
-    assert num1>0 and num2>0 and int(num1)==num1 and int(num2)==num2,"Enter only positive integer number"
+    assert int(num1)==num1 and int(num2)==num2,"Enter only positive integer number"
+    if num1 < 0:
+        num1 = -1 * num1
+    if num2 < 0:
+        num2 = -1 * num2
     if num1 % num2 == 0:
         return num2
     else:
