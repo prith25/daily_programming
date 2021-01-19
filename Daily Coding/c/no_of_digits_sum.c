@@ -3,28 +3,27 @@ Get two numbers as input. Find the sum of the numbers.
 If the number of digits in the sum is greater than the number of digits in the first number then print only the first number, else print the sum
 */
 #include <stdio.h>
-int is_prime(int num)
+int digit(int num)
 {
-    int i;
-    for(i=3; i<=(num/2); i++)
+    int count = 0;
+    while(num > 0)
     {
-        if(num%i == 0)
-            return 0;
+        num /= 10;
+        count++;
     }
-    return 1;
+    return count;
 }
 int main()
 {
-    int num, i;
-    printf("Enter the number: ");
-    scanf("%d",&num);
-    for(i=3; i<=num; i++)
-    {
-        if(is_prime(i) && is_prime(num-i))
-        {
-            printf("%d %d",i,num-i);
-            break;
-        }
-    }
+    int a, b, sum, digits_a, digits_sum;
+    printf("Enter the numbers : ");
+    scanf("%d %d",&a,&b);
+    digits_a = digit(a);
+    sum = a+b;
+    digits_sum = digit(sum);
+    if(digits_sum == digits_a)
+        printf("%d",sum);
+    else
+        printf("%d",a);
     return 0;
 }
